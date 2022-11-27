@@ -6,10 +6,10 @@
   "scripts": {
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
-    "dev:11ty": "eleventy --serve",
+    "dev:11ty": "ELEVENTY_ENV=dev eleventy --serve",
     "dev:css": "tailwindcss -i src/assets/global.css -o _site/assets/global.css --watch --postcss",
-    "build:11ty": "eleventy",
-    "build:css": "tailwindcss -i src/assets/global.css -o _site/assets/global.css --postcss"
+    "build:11ty": "ELEVENTY_ENV=prod eleventy",
+    "build:css": "tailwindcss -i src/assets/global.css -o _site/assets/global.css --minify --postcss"
   },
   "repository": {
     "type": "git",
