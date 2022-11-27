@@ -10,7 +10,7 @@ activities: ["Wireframing", "Visual design (Sketch)", "Interaction design (Sketc
         <a href="/" class="text-blue-700 py-4 block">Home</a>
         <img class="mx-auto mb-4" src="/images/logos/cs-logo.svg" alt="Credit Suisse logo" width="188" height="24"/>
         <h1 class="text-5xl sm:text-7xl font-bold">CSX mobile banking</h1>
-        <img class="mx-auto mt-10 sm:mt-14" src="/images/csx-mobile-banking/csx-app-lg.webp"
+        <img class="mx-auto mt-10 sm:mt-14 transition-all duration-500 opacity-0 -translate-y-12 image-fade" src="/images/csx-mobile-banking/csx-app-lg.webp"
              alt="3 Screens of the final product"
              width="800"
              height="593"/>
@@ -173,3 +173,16 @@ activities: ["Wireframing", "Visual design (Sketch)", "Interaction design (Sketc
         <a href="/" class="text-blue-700 py-4 block text-center mb-8">Back to home page</a>
     </section>
 </main>
+
+<script>
+    const image = document.querySelector(".image-fade");
+    const fadeIn = new IntersectionObserver (function (entries, observer) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("opacity-100");
+                entry.target.classList.add("translate-y-0");
+            }
+        }, {threshold: 1});
+    });
+    fadeIn.observe(image);
+</script>

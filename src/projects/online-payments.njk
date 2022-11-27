@@ -10,7 +10,7 @@ activities: ["Interaction design (Sketch)", "Prototyping (InVision)", "IT hand-o
         <a href="/" class="text-blue-700 py-4 block">Home</a>
         <img class="mx-auto mb-4" src="/images/logos/cs-logo.svg" alt="Credit Suisse logo" width="188" height="24"/>
         <h1 class="text-5xl sm:text-7xl font-bold">{{ title }}</h1>
-        <img class="my-4 sm:my-8" src="/images/online-payments/payments-sm.webp" alt="Payment entry screen"
+        <img class="my-4 sm:my-8 transition-all duration-500 opacity-0 -translate-y-12 image-fade" src="/images/online-payments/payments-sm.webp" alt="Payment entry screen"
              srcset="/images/online-payments/payments-sm.webp 720w, /images/online-payments/payments-lg.webp 1600w"
              sizes="100vw"
              width="800"
@@ -248,3 +248,16 @@ activities: ["Interaction design (Sketch)", "Prototyping (InVision)", "IT hand-o
         <a href="/" class="text-blue-700 py-4 block text-center mb-8">Back to home page</a>
     </section>
 </main>
+
+<script>
+    const image = document.querySelector(".image-fade");
+    const fadeIn = new IntersectionObserver (function (entries, observer) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("opacity-100");
+                entry.target.classList.add("translate-y-0");
+            }
+        }, {threshold: 1});
+    });
+    fadeIn.observe(image);
+</script>
